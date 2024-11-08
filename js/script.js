@@ -1,92 +1,81 @@
-const squaresContainer = document.getElementById("squares");
-const resetButton = document.getElementById("reset-button");
-const quizModal = document.getElementById("quiz-modal");
-const closeButton = document.getElementById("close-button");
-const showHintsButton = document.getElementById("show-hints-button");
-const answersContainer = document.getElementById("answers");
-const questionElement = document.getElementById("question");
+document.addEventListener("DOMContentLoaded", function() {
+    const grid = document.getElementById("grid");
+    const questionPanel = document.getElementById("questionPanel");
+    const questionText = document.getElementById("questionText");
+    const hintButton = document.getElementById("hintButton");
+    const answersContainer = document.getElementById("answers");
+    const closeButton = document.getElementById("closeButton");
+    const resetButton = document.getElementById("resetButton");
 
-let questions = [
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jaki jest najdłuższy dzień w roku?", answers: ["21 czerwca", "22 czerwca", "21 marca", "23 września"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
-    
-    // Dodaj więcej pytań
-];
+    const squares = [];
+    let questions = [
+        {
+            question: "In mathematics, what is the smallest prime number greater than 100?",
+            answers: ["101", "103", "107", "109"],
+            correctAnswer: 0
+        },
+        {
+            question: "What is the powerhouse of the cell?",
+            answers: ["Ribosome", "Mitochondrion", "Nucleus", "Chloroplast"],
+            correctAnswer: 1
+        },
+        // Dodaj tutaj więcej pytań...
+    ];
 
-function createSquares() {
-    for (let i = 1; i <= 50; i++) {
+    // Inicjalizacja kwadratów
+    for (let i = 0; i < 50; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
-        square.textContent = i;
-        square.addEventListener("click", () => openQuiz(i - 1, square));
-        squaresContainer.appendChild(square);
+        square.innerText = i + 1;
+        square.addEventListener("click", () => handleSquareClick(i));
+        grid.appendChild(square);
+        squares.push(square);
     }
-}
 
-function openQuiz(index, square) {
-    if (square.classList.contains("clicked")) return;
-
-    const questionData = questions[index % questions.length];
-    questionElement.textContent = questionData.question;
-    answersContainer.innerHTML = "";
-    answersContainer.style.display = "none";
-
-    questionData.answers.forEach((answer, i) => {
-        const answerDiv = document.createElement("div");
-        answerDiv.classList.add("answer");
-        answerDiv.textContent = answer;
-        answerDiv.addEventListener("click", () => {
-            checkAnswer(answerDiv, i, questionData.correct, square);
+    // Kliknięcie w kwadrat
+    function handleSquareClick(index) {
+        const question = questions[index % questions.length];
+        questionText.innerText = question.question;
+        answersContainer.innerHTML = "";
+        question.answers.forEach((answer, i) => {
+            const answerButton = document.createElement("button");
+            answerButton.innerText = answer;
+            answerButton.classList.add("answerButton");
+            answerButton.addEventListener("click", () => checkAnswer(i, question.correctAnswer, index));
+            answersContainer.appendChild(answerButton);
         });
-        answersContainer.appendChild(answerDiv);
-    });
-
-    quizModal.classList.add("active");
-}
-
-function checkAnswer(element, index, correctIndex, square) {
-    if (index === correctIndex) {
-        element.classList.add("correct");
-    } else {
-        element.classList.add("incorrect");
+        hintButton.style.display = "block";
+        answersContainer.classList.add("hidden");
+        questionPanel.classList.add("active");
     }
-    square.classList.add("clicked");
-}
 
-showHintsButton.addEventListener("click", () => {
-    answersContainer.style.display = "block";
-});
+    // Sprawdzenie odpowiedzi
+    function checkAnswer(selectedAnswer, correctAnswer, index) {
+        const answerButtons = answersContainer.querySelectorAll(".answerButton");
+        answerButtons.forEach((button, i) => {
+            if (i === correctAnswer) button.classList.add("correct");
+            else if (i === selectedAnswer) button.classList.add("incorrect");
+        });
+        squares[index].classList.add("inactive");
+        squares[index].removeEventListener("click", () => handleSquareClick(index));
+    }
 
-closeButton.addEventListener("click", () => {
-    quizModal.classList.remove("active");
-    answersContainer.style.display = "none";
-});
+    // Obsługa przycisku "Pokaż podpowiedzi"
+    hintButton.addEventListener("click", () => {
+        answersContainer.classList.remove("hidden");
+        hintButton.style.display = "none";
+    });
 
-resetButton.addEventListener("click", () => {
-    document.querySelectorAll(".square").forEach(square => {
-        square.classList.remove("clicked");
+    // Obsługa przycisku zamknięcia
+    closeButton.addEventListener("click", () => {
+        questionPanel.classList.remove("active");
+    });
+
+    // Obsługa resetowania
+    resetButton.addEventListener("click", () => {
+        squares.forEach(square => {
+            square.classList.remove("inactive");
+            square.addEventListener("click", () => handleSquareClick(Array.from(squares).indexOf(square)));
+        });
     });
 });
-
-createSquares();
