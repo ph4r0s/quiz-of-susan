@@ -11,15 +11,6 @@ body {
     color: #fff;
     margin: 0;
 }
-
-.grid-container {
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 10px;
-  background-color: #2196F3;
-  padding: 20px;
-}
-
 .square {
    width: 120px;
     height: 120px;
