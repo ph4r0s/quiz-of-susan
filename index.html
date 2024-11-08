@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interaktywny Kalendarz Adwentowy</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Kalendarz Adwentowy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="container">
+        <div id="grid"></div>
+        <button id="resetButton">Resetuj</button>
+    </div>
 
-<div class="container">
-    <!-- Tworzenie 50 kwadratów przy użyciu JavaScript -->
-</div>
+    <!-- Pytanie oraz odpowiedzi -->
+    <div id="questionPanel" class="hidden">
+        <div id="questionContent">
+            <span id="closeButton">✖</span>
+            <h2 id="questionText"></h2>
+            <button id="hintButton">Pokaż podpowiedzi</button>
+            <div id="answers" class="hidden">
+                <button class="answerButton">A</button>
+                <button class="answerButton">B</button>
+                <button class="answerButton">C</button>
+                <button class="answerButton">D</button>
+            </div>
+        </div>
+    </div>
 
-<button class="reset-button" onclick="resetSquares()">Reset</button>
-
-<script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
