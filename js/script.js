@@ -9,6 +9,28 @@ const questionElement = document.getElementById("question");
 let questions = [
     { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
     { question: "Jaki jest najdłuższy dzień w roku?", answers: ["21 czerwca", "22 czerwca", "21 marca", "23 września"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    { question: "Jakie jest największe jezioro w Polsce?", answers: ["Śniardwy", "Mamry", "Hańcza", "Drawsko"], correct: 0 },
+    
     // Dodaj więcej pytań
 ];
 
