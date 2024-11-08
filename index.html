@@ -4,29 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalendarz Adwentowy</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container">
-        <div id="grid"></div>
-        <button id="resetButton">Resetuj</button>
+    <div class="grid-container">
+        <div id="squares"></div>
     </div>
+    <button id="reset-button">Resetuj</button>
 
-    <!-- Pytanie oraz odpowiedzi -->
-    <div id="questionPanel" class="hidden">
-        <div id="questionContent">
-            <span id="closeButton">✖</span>
-            <h2 id="questionText"></h2>
-            <button id="hintButton">Pokaż podpowiedzi</button>
-            <div id="answers" class="hidden">
-                <button class="answerButton">A</button>
-                <button class="answerButton">B</button>
-                <button class="answerButton">C</button>
-                <button class="answerButton">D</button>
-            </div>
+    <div id="quiz-modal">
+        <div class="quiz-content">
+            <span id="close-button">&times;</span>
+            <h2 id="question">Pytanie pojawi się tutaj</h2>
+            <button id="show-hints-button">Pokaż podpowiedzi</button>
+            <div id="answers"></div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
