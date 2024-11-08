@@ -1,48 +1,110 @@
-/* Styl dla głównego kontenera */
-.container {
-    width: 800px;
-    margin: 0 auto;
+/* Ogólne style */
+body {
     display: flex;
-    flex-wrap: wrap;
-    gap: 3px; /* Odstęp między kostkami */
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-/* Styl dla każdej kostki */
+#container {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-gap: 3px;
+    margin-bottom: 20px;
+}
+
 .square {
     width: 60px;
     height: 60px;
+    border: 2px solid white;
+    background-color: #4CAF50;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background-color: #3b82f6; /* Możesz zmienić kolor */
-    border: 2px solid white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-/* Styl po odkryciu kostki */
-.square.revealed {
-    background-color: #888; /* Kolor po odkryciu */
-    pointer-events: none; /* Wyłącza możliwość ponownego kliknięcia */
+.square.inactive {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
 }
 
-/* Reset button */
-.reset-button {
-    margin-top: 20px;
+#resetButton {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-.reset-button:hover {
-    background-color: #2563eb;
+/* Style panelu pytania */
+#questionPanel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#questionPanel.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+#questionContent {
+    background: white;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.answerButton {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.answerButton.correct {
+    background-color: green;
+}
+
+.answerButton.incorrect {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
 }
